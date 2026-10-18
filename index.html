@@ -160,6 +160,63 @@
         line-height: 1.8;
       }
 
+      .studio-callout {
+        display: flex;
+        width: fit-content;
+        max-width: 100%;
+        align-items: center;
+        gap: 30px;
+        margin-top: 42px;
+        padding: 18px 20px 18px 22px;
+        border: 1px solid rgb(195 206 131 / 43%);
+        background:
+          linear-gradient(110deg, rgb(195 206 131 / 13%), rgb(195 206 131 / 4%)),
+          #171914;
+        box-shadow: 0 12px 44px rgb(0 0 0 / 18%);
+      }
+
+      .studio-credit {
+        display: grid;
+        gap: 7px;
+      }
+
+      .studio-label {
+        color: #aeb58a;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+
+      .studio-name {
+        color: #f4f0e8;
+        font-size: 16px;
+        font-weight: 650;
+        letter-spacing: 0.025em;
+      }
+
+      .studio-contact {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 16px;
+        background: #c3ce83;
+        color: #171914;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.045em;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background-color 180ms ease, transform 180ms ease;
+      }
+
+      .studio-contact:hover,
+      .studio-contact:focus-visible {
+        background: #d6dfa0;
+        transform: translateY(-2px);
+      }
+
       .ornament {
         position: absolute;
         top: 50%;
@@ -214,35 +271,6 @@
 
       .footer p {
         margin: 0;
-      }
-
-      .footer-contact {
-        display: grid;
-        justify-items: end;
-        gap: 7px;
-        text-align: right;
-      }
-
-      .footer-contact-label {
-        color: #8d8f83;
-        font-size: 9px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .footer-contact a {
-        color: #d3d1c6;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        transition: color 180ms ease;
-      }
-
-      .footer-contact a:hover,
-      .footer-contact a:focus-visible {
-        color: #c3ce83;
       }
 
       @keyframes arrive {
@@ -314,6 +342,27 @@
           font-size: 14px;
         }
 
+        .studio-callout {
+          width: 100%;
+          flex-wrap: wrap;
+          gap: 16px;
+          margin-top: 30px;
+          padding: 16px;
+        }
+
+        .studio-credit {
+          flex: 1 1 150px;
+        }
+
+        .studio-name {
+          font-size: 14px;
+        }
+
+        .studio-contact {
+          width: 100%;
+          min-height: 46px;
+        }
+
         .ornament {
           top: 22%;
           right: -12%;
@@ -329,17 +378,6 @@
           letter-spacing: 0.04em;
         }
 
-        .footer-contact {
-          gap: 6px;
-        }
-
-        .footer-contact-label {
-          font-size: 7px;
-        }
-
-        .footer-contact a {
-          font-size: 10px;
-        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -370,15 +408,18 @@
           <p class="eyebrow">Një kapitull i ri po vjen</p>
           <h1 id="coming-soon">Rikthehemi <span>së shpejti.</span></h1>
           <p class="description">Po përgatisim diçka të veçantë. Na vizito sërish shumë shpejt.</p>
+          <aside class="studio-callout" aria-label="Informacion kontakti për DevPath Systems">
+            <div class="studio-credit">
+              <span class="studio-label">Faqja u realizua nga</span>
+              <span class="studio-name">DevPath Systems</span>
+            </div>
+            <a class="studio-contact" href="https://devpathsystems.com" target="_blank" rel="noopener noreferrer">Kontaktoni në devpathsystems.com</a>
+          </aside>
         </section>
       </main>
 
       <footer class="footer">
         <p>© <span id="year">2026</span> CERENI</p>
-        <div class="footer-contact">
-          <span class="footer-contact-label">Realizuar nga DevPath Systems</span>
-          <a href="https://devpathsystems.com" target="_blank" rel="noopener noreferrer">Kontaktoni në devpathsystems.com</a>
-        </div>
       </footer>
     </div>
   </body>
