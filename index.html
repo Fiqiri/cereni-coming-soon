@@ -78,58 +78,24 @@
         text-decoration: none;
       }
 
-      .studio-mark {
+      .status {
         display: inline-flex;
         align-items: center;
-        gap: 12px;
-        padding: 9px 14px 9px 9px;
-        border: 1px solid rgb(195 206 131 / 27%);
-        border-radius: 3px;
-        background: linear-gradient(115deg, rgb(195 206 131 / 9%), rgb(195 206 131 / 2%));
-        color: inherit;
-        text-decoration: none;
-        transition: border-color 180ms ease, background-color 180ms ease;
-      }
-
-      .studio-mark:hover,
-      .studio-mark:focus-visible {
-        border-color: rgb(195 206 131 / 65%);
-        background-color: rgb(195 206 131 / 7%);
-      }
-
-      .studio-symbol {
-        display: grid;
-        width: 34px;
-        height: 34px;
-        place-items: center;
-        border: 1px solid rgb(195 206 131 / 38%);
-        color: #c3ce83;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 22px;
-        font-style: italic;
-        line-height: 1;
-      }
-
-      .studio-copy {
-        display: grid;
-        gap: 4px;
-      }
-
-      .studio-label {
-        color: #999b8d;
-        font-size: 8px;
-        font-weight: 600;
-        letter-spacing: 0.18em;
-        line-height: 1;
+        gap: 11px;
+        color: #c5c3b8;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.13em;
         text-transform: uppercase;
       }
 
-      .studio-name {
-        color: #f4f0e8;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.035em;
-        line-height: 1.2;
+      .status::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #c3ce83;
+        box-shadow: 0 0 14px rgb(195 206 131 / 55%);
+        content: "";
       }
 
       main {
@@ -250,17 +216,33 @@
         margin: 0;
       }
 
-      .credit a {
+      .footer-contact {
+        display: grid;
+        justify-items: end;
+        gap: 7px;
+        text-align: right;
+      }
+
+      .footer-contact-label {
+        color: #8d8f83;
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .footer-contact a {
         color: #d3d1c6;
-        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-decoration: underline;
         text-underline-offset: 4px;
         transition: color 180ms ease;
       }
 
-      .credit a:hover,
-      .credit a:focus-visible {
+      .footer-contact a:hover,
+      .footer-contact a:focus-visible {
         color: #c3ce83;
-        text-decoration: underline;
       }
 
       @keyframes arrive {
@@ -302,23 +284,10 @@
           font-size: 15px;
         }
 
-        .studio-mark {
+        .status {
           gap: 8px;
-          padding: 7px 9px 7px 7px;
-        }
-
-        .studio-symbol {
-          width: 30px;
-          height: 30px;
-          font-size: 19px;
-        }
-
-        .studio-label {
-          font-size: 7px;
-        }
-
-        .studio-name {
-          font-size: 10px;
+          font-size: 9px;
+          letter-spacing: 0.1em;
         }
 
         main {
@@ -359,6 +328,18 @@
           font-size: 9px;
           letter-spacing: 0.04em;
         }
+
+        .footer-contact {
+          gap: 6px;
+        }
+
+        .footer-contact-label {
+          font-size: 7px;
+        }
+
+        .footer-contact a {
+          font-size: 10px;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -377,13 +358,7 @@
     <div class="page">
       <header class="topbar">
         <a class="wordmark" href="/" aria-label="Cereni — faqja kryesore">CERENI</a>
-        <a class="studio-mark" href="https://devpathsystems.com" target="_blank" rel="noopener noreferrer" aria-label="Realizuar nga DevPath Systems">
-          <span class="studio-symbol" aria-hidden="true">D</span>
-          <span class="studio-copy">
-            <span class="studio-label">Realizuar nga</span>
-            <span class="studio-name">DevPath Systems</span>
-          </span>
-        </a>
+        <span class="status">Po përgatitet diçka e re</span>
       </header>
 
       <main>
@@ -400,7 +375,10 @@
 
       <footer class="footer">
         <p>© <span id="year">2026</span> CERENI</p>
-        <p class="credit">Realizuar me kujdes nga <a href="https://devpathsystems.com" target="_blank" rel="noopener noreferrer">DevPath Systems</a></p>
+        <div class="footer-contact">
+          <span class="footer-contact-label">Realizuar nga DevPath Systems</span>
+          <a href="https://devpathsystems.com" target="_blank" rel="noopener noreferrer">Kontaktoni në devpathsystems.com</a>
+        </div>
       </footer>
     </div>
   </body>
