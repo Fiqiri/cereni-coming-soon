@@ -3,44 +3,352 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Kthehemi së shpejti.">
-    <title>Kthehemi së shpejti</title>
+    <meta name="theme-color" content="#10110f">
+    <meta name="description" content="Rikthehemi së shpejti. Po përgatisim diçka të veçantë.">
+    <title>Rikthehemi së shpejti — Cereni</title>
     <style>
-      * {
+      :root {
+        color-scheme: dark;
+        font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        background: #10110f;
+        color: #f4f0e8;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
-      html,
       body {
-        min-height: 100%;
-        margin: 0;
-      }
-
-      body {
-        display: grid;
+        min-width: 320px;
         min-height: 100vh;
         min-height: 100svh;
-        place-items: center;
-        padding: 1.5rem;
-        background: #fff;
-        color: #171717;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        text-align: center;
+        margin: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse at 76% 48%, rgb(104 110 72 / 15%), transparent 36rem),
+          #10110f;
+      }
+
+      body::before {
+        position: fixed;
+        z-index: 0;
+        pointer-events: none;
+        content: "";
+        inset: 0;
+        opacity: 0.14;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.2' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .page {
+        position: relative;
+        display: flex;
+        width: min(100% - 96px, 1440px);
+        min-height: 100vh;
+        min-height: 100svh;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-inline: auto;
+      }
+
+      .topbar,
+      .footer {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .topbar {
+        min-height: 112px;
+        border-bottom: 1px solid rgb(244 240 232 / 12%);
+      }
+
+      .wordmark {
+        color: #f4f0e8;
+        font-size: 17px;
+        font-weight: 650;
+        letter-spacing: 0.29em;
+        text-decoration: none;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        color: #c5c3b8;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .status::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #c3ce83;
+        box-shadow: 0 0 14px rgb(195 206 131 / 55%);
+        content: "";
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        padding-block: 80px;
+      }
+
+      .copy {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 790px);
+        padding-block: 22px 32px;
+        animation: arrive 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 0 0 34px;
+        color: #c3ce83;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.21em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 38px;
+        height: 1px;
+        background: #c3ce83;
+        content: "";
       }
 
       h1 {
+        max-width: 850px;
         margin: 0;
-        font-size: clamp(2rem, 7vw, 4.5rem);
-        font-weight: 600;
-        letter-spacing: -0.04em;
-        line-height: 1.1;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(4rem, 9.5vw, 9rem);
+        font-weight: 400;
+        letter-spacing: -0.075em;
+        line-height: 0.94;
+      }
+
+      h1 span {
+        display: block;
+        color: #c3ce83;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .description {
+        max-width: 390px;
+        margin: 32px 0 0;
+        color: #a8a99f;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.8;
+      }
+
+      .ornament {
+        position: absolute;
+        top: 50%;
+        right: 3%;
+        width: min(37vw, 490px);
+        aspect-ratio: 1;
+        border: 1px solid rgb(195 206 131 / 17%);
+        border-radius: 50%;
+        transform: translateY(-50%);
+        animation: float-in 1.4s ease-out both;
+      }
+
+      .ornament::before,
+      .ornament::after,
+      .ornament-inner {
+        position: absolute;
+        border: 1px solid rgb(195 206 131 / 24%);
+        border-radius: 50%;
+        content: "";
+        inset: 12%;
+        transform: rotate(45deg) scaleX(0.56);
+      }
+
+      .ornament::after {
+        transform: rotate(-45deg) scaleX(0.56);
+      }
+
+      .ornament-inner {
+        border-color: rgb(195 206 131 / 35%);
+        transform: rotate(90deg) scaleX(0.56);
+      }
+
+      .ornament-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #c3ce83;
+        box-shadow: 0 0 34px 12px rgb(195 206 131 / 24%);
+        transform: translate(-50%, -50%);
+      }
+
+      .footer {
+        min-height: 92px;
+        border-top: 1px solid rgb(244 240 232 / 12%);
+        color: #77796f;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      .credit a {
+        color: #d3d1c6;
+        text-decoration: none;
+        text-underline-offset: 4px;
+        transition: color 180ms ease;
+      }
+
+      .credit a:hover,
+      .credit a:focus-visible {
+        color: #c3ce83;
+        text-decoration: underline;
+      }
+
+      @keyframes arrive {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float-in {
+        from {
+          opacity: 0;
+          transform: translate(16px, -50%) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translate(0, -50%) scale(1);
+        }
+      }
+
+      @media (max-width: 760px) {
+        body {
+          overflow: auto;
+        }
+
+        .page {
+          width: min(100% - 44px, 560px);
+        }
+
+        .topbar {
+          min-height: 82px;
+        }
+
+        .wordmark {
+          font-size: 15px;
+        }
+
+        .status {
+          gap: 8px;
+          font-size: 9px;
+          letter-spacing: 0.1em;
+        }
+
+        main {
+          min-height: calc(100svh - 164px);
+          padding-block: 80px;
+        }
+
+        .copy {
+          padding-block: 50px;
+        }
+
+        .eyebrow {
+          margin-bottom: 28px;
+          font-size: 9px;
+        }
+
+        h1 {
+          font-size: clamp(3.75rem, 17vw, 7rem);
+        }
+
+        .description {
+          max-width: 310px;
+          margin-top: 24px;
+          font-size: 14px;
+        }
+
+        .ornament {
+          top: 22%;
+          right: -12%;
+          width: 66vw;
+          opacity: 0.42;
+          transform: translateY(-50%) scale(0.76);
+        }
+
+        .footer {
+          min-height: 82px;
+          gap: 20px;
+          font-size: 9px;
+          letter-spacing: 0.04em;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Kthehemi së shpejti</h1>
-    </main>
+    <div class="page">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Cereni — faqja kryesore">CERENI</a>
+        <span class="status">Po përgatitet diçka e re</span>
+      </header>
+
+      <main>
+        <div class="ornament" aria-hidden="true">
+          <span class="ornament-inner"></span>
+          <span class="ornament-center"></span>
+        </div>
+        <section class="copy" aria-labelledby="coming-soon">
+          <p class="eyebrow">Një kapitull i ri po vjen</p>
+          <h1 id="coming-soon">Rikthehemi <span>së shpejti.</span></h1>
+          <p class="description">Po përgatisim diçka të veçantë. Na vizito sërish shumë shpejt.</p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© <span id="year">2026</span> CERENI</p>
+        <p class="credit">Realizuar me kujdes nga <a href="https://devpathsystems.com" target="_blank" rel="noopener noreferrer">DevPath Systems</a></p>
+      </footer>
+    </div>
   </body>
 </html>
